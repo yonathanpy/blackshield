@@ -1,14 +1,15 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&text=BLACKSHIELD&fontSize=60&color=0:0f172a,100:000000&stroke=22c55e&fontColor=22c55e"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=180&text=BLACKSHIELD&fontSize=55&color=0:020617,100:000000&fontColor=22c55e"/>
 </p>
 
 <p align="center">
-  <img src="https://img.icons8.com/ios-filled/500/000000/shield.png" width="110" style="opacity:0.85;"/>
+  <img src="https://img.icons8.com/ios-filled/500/ffffff/shield.png" width="120"/>
 </p>
 
 <p align="center">
-<sub><span style="color:#22c55e">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
+<sub><span style="color:#16a34a">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
 </p>
+
 
 # blackshield
 
