@@ -1,0 +1,13 @@
+ingress:
+  hit_limit: 100
+  strike_limit: 4
+
+audit:
+  fail_threshold: 7
+
+wire:
+  packet_threshold: 200
+
+response:
+  drop: true
+  alert: true
