@@ -1,4 +1,12 @@
+<p align="center">
+  <img src="https://img.icons8.com/ios-filled/500/111111/shield.png" width="140"/>
+</p>
 
+<h1 align="center" style="color:#9ca3af;">BLACKSHIELD</h1>
+
+<p align="center">
+<sub>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</sub>
+</p>
 <p align="center">
   <img src="https://img.icons8.com/ios-filled/500/000000/shield.png" width="110" style="opacity:0.85;"/>
 </p>
