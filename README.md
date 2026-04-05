@@ -1,21 +1,17 @@
 # blackshield
 
 <p align="center">
-  <img src="https://img.icons8.com/ios-filled/500/000000/bug.png" width="90"/>
-  <img src="https://img.icons8.com/ios-filled/500/000000/activity-history.png" width="90"/>
-  <img src="https://img.icons8.com/ios-filled/500/000000/hammer.png" width="90"/>
-  <img src="https://img.icons8.com/ios-filled/500/000000/anvil.png" width="90"/>
-  <img src="https://img.icons8.com/ios-filled/500/000000/fire.png" width="90"/>
-</p>
-
-<p align="center">
-────────────────────────────────────────────
+════════════════════════════════════════════════════════════
 </p>
 
 BlackShield is a **layered defensive toolkit** for high-sensitivity infrastructure.  
 It provides **connection tracking**, **authentication abuse detection**, **packet-rate anomaly monitoring**, and **kernel-level enforcement**.  
 
 No external dependencies. Deterministic, fail-closed, and bounded memory design.
+
+<p align="center">
+════════════════════════════════════════════════════════════
+</p>
 
 ---
 
@@ -42,11 +38,11 @@ blackshield/
 ### 1. Ingress (Go)
 Tracks TCP connection attempts with **strike-based enforcement**.  
 
-**Core logic snippet (abstracted):**
+**Core logic (abstracted):**
 ```go
-if hits exceed limit:
-    increment strike counter
-    enforce drop when threshold reached
+if limit exceeded:
+    increase strike level
+    enforce drop at threshold
 ```
 
 Per-source accounting  
@@ -59,15 +55,14 @@ Time-decay cleanup
 
 Correlates authentication logs and detects brute-force attempts.
 
-Example pattern matching (simplified):
-
+**Pattern logic (abstracted):**
 ```python
-extract source IP from failed authentication events
-increment failure counters per source
+detect failed authentication events
+track failures per source
 ```
 
-Multi-pattern regex parsing  
-Stateful per-source tracking  
+Multi-pattern parsing  
+Stateful tracking  
 Deterministic fingerprinting  
 
 ---
@@ -76,11 +71,10 @@ Deterministic fingerprinting
 
 Monitors packet flows and identifies anomalies.
 
-Packet-rate check (abstracted):
-
+**Detection logic (abstracted):**
 ```rust
-if rate exceeds threshold:
-    emit anomaly event
+if traffic rate abnormal:
+    trigger anomaly event
 ```
 
 Low-latency intake  
@@ -93,16 +87,15 @@ Time-window pruning
 
 Kernel-level enforcement drops malicious packets before reaching userspace.
 
-Decision logic (abstracted):
-
+**Kernel decision (abstracted):**
 ```c
-if threshold exceeded:
-    drop packet at kernel level
+if threshold reached:
+    drop packet
 ```
 
 XDP hook for zero-copy evaluation  
-Per-source packet accounting in kernel memory  
-Immediate drop on threshold breach  
+Kernel memory tracking  
+Immediate enforcement  
 
 ---
 
@@ -130,34 +123,30 @@ response:
 ```
 
 Central control for thresholds and enforcement  
-Simple, auditable, and human-readable  
+Simple and auditable  
 
 ---
 
 ## Build & Deployment
 
 Userland:
-
 ```bash
 bash ops/init.sh
 ```
 
 Kernel Layer:
-
 ```bash
 cd kernel/fluxguard
 make
 sudo ./fluxguard eth0 fluxguard.o
 ```
 
-Detach kernel program:
-
+Detach:
 ```bash
 sudo ip link set dev eth0 xdp off
 ```
 
-Run userland modules:
-
+Run:
 ```bash
 ./ingress/ingress
 python3 audit/core.py
@@ -168,22 +157,19 @@ python3 audit/core.py
 
 ## Execution Flow
 
-Packet hits interface → FluxGuard evaluates in kernel  
-High-rate sources → dropped instantly  
-Surviving connections → Ingress monitors TCP attempts  
-Authentication events → Audit correlates brute-force activity  
-Wire monitors packet flow anomalies  
-Alerts emitted across all modules  
+Packet → Kernel evaluation → Drop or pass  
+Ingress tracking → Audit correlation → Wire analysis  
+Enforcement + alerts  
 
 ---
 
 ## Key Features
 
 Kernel-first enforcement  
-Deterministic userland tracking (Go/Python/Rust)  
-Fail-closed, bounded memory design  
-No external telemetry or cloud services  
-High-performance, real defensive posture  
+Deterministic tracking  
+Bounded memory design  
+No external dependencies  
+High-performance defense  
 
 ---
 
@@ -193,26 +179,29 @@ Intended for:
 
 Perimeter nodes  
 Authentication gateways  
-Segmented internal networks  
-High-sensitivity infrastructure  
+Segmented networks  
+Sensitive infrastructure  
 
 Not designed for:
 
-Forensic analysis  
-Distributed intelligence aggregation  
+Forensics  
+Distributed intelligence  
 
 ---
 
 ## Extension Points
 
-nftables/ipset integration  
-Distributed state propagation  
-Protocol-aware parsing at eBPF level  
-Adaptive thresholds based on baseline learning  
+nftables / ipset  
+State propagation  
+Protocol-aware parsing  
+Adaptive thresholds  
 
 ---
 
 ## Summary
 
-BlackShield observes → classifies → enforces → discards.  
-Early suppression is prioritized over late interpretation, delivering a robust, expert-level defensive toolkit.
+BlackShield observes → classifies → enforces → discards.
+
+<p align="center">
+════════════════════════════════════════════════════════════
+</p>
