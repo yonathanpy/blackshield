@@ -1,9 +1,11 @@
-!-- Activity / Pulse -->
-<img src="https://img.icons8.com/ios-filled/500/000000/activity-history.png" width="200"/>
 # blackshield
 
 <p align="center">
-════════════════════════════════════════════════════════════
+  <img src="https://img.icons8.com/ios-filled/500/22c55e/shield.png" width="110"/>
+</p>
+
+<p align="center">
+<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
 </p>
 
 BlackShield is a **layered defensive toolkit** for high-sensitivity infrastructure.  
@@ -12,7 +14,7 @@ It provides **connection tracking**, **authentication abuse detection**, **packe
 No external dependencies. Deterministic, fail-closed, and bounded memory design.
 
 <p align="center">
-════════════════════════════════════════════════════════════
+<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
 </p>
 
 ---
@@ -205,5 +207,5 @@ Adaptive thresholds
 BlackShield observes → classifies → enforces → discards.
 
 <p align="center">
-════════════════════════════════════════════════════════════
+<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
 </p>
