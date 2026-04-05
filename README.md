@@ -1,5 +1,17 @@
 # blackshield
 
+<p align="center">
+  <img src="https://img.icons8.com/ios-filled/500/000000/bug.png" width="90"/>
+  <img src="https://img.icons8.com/ios-filled/500/000000/activity-history.png" width="90"/>
+  <img src="https://img.icons8.com/ios-filled/500/000000/hammer.png" width="90"/>
+  <img src="https://img.icons8.com/ios-filled/500/000000/anvil.png" width="90"/>
+  <img src="https://img.icons8.com/ios-filled/500/000000/fire.png" width="90"/>
+</p>
+
+<p align="center">
+────────────────────────────────────────────
+</p>
+
 BlackShield is a **layered defensive toolkit** for high-sensitivity infrastructure.  
 It provides **connection tracking**, **authentication abuse detection**, **packet-rate anomaly monitoring**, and **kernel-level enforcement**.  
 
@@ -30,14 +42,11 @@ blackshield/
 ### 1. Ingress (Go)
 Tracks TCP connection attempts with **strike-based enforcement**.  
 
-**Core logic snippet:**
+**Core logic snippet (abstracted):**
 ```go
-if n.hits > limit {
-    n.strikes++
-    if n.strikes >= strikeLimit {
-        log.Printf("enforced src=%s action=drop", ip)
-    }
-}
+if hits exceed limit:
+    increment strike counter
+    enforce drop when threshold reached
 ```
 
 Per-source accounting  
@@ -50,11 +59,11 @@ Time-decay cleanup
 
 Correlates authentication logs and detects brute-force attempts.
 
-Example pattern matching:
+Example pattern matching (simplified):
 
 ```python
-m = re.search(r"Failed password for .* from (\d+\.\d+\.\d+\.\d+)", line)
-if m: state[ip]["fail"] += 1
+extract source IP from failed authentication events
+increment failure counters per source
 ```
 
 Multi-pattern regex parsing  
@@ -67,12 +76,11 @@ Deterministic fingerprinting
 
 Monitors packet flows and identifies anomalies.
 
-Packet-rate check snippet:
+Packet-rate check (abstracted):
 
 ```rust
-if e.count > threshold {
-    println!("event=rate_anomaly src={} count={}", key, e.count);
-}
+if rate exceeds threshold:
+    emit anomaly event
 ```
 
 Low-latency intake  
@@ -85,10 +93,11 @@ Time-window pruning
 
 Kernel-level enforcement drops malicious packets before reaching userspace.
 
-Decision logic snippet:
+Decision logic (abstracted):
 
 ```c
-if (*count > LIMIT) return XDP_DROP;
+if threshold exceeded:
+    drop packet at kernel level
 ```
 
 XDP hook for zero-copy evaluation  
