@@ -1,5 +1,6 @@
-!-- Hammer (forge theme) -->
-<img src="https://img.icons8.com/ios-filled/500/000000/hammer.png" width="200"/>
+<!-- Anvil (forging) -->
+<img src="https://img.icons8.com/ios-filled/500/000000/anvil.png" width="200"/>
+
 # blackshield
 
 <p align="center">
