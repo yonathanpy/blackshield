@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&text=BLACKSHIELD&fontSize=60&color=0:0f172a,100:000000&stroke=22c55e&fontColor=22c55e"/>
-</p>
 
 <p align="center">
   <img src="https://img.icons8.com/ios-filled/500/000000/shield.png" width="110" style="opacity:0.85;"/>
