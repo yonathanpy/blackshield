@@ -1,12 +1,16 @@
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&text=BLACKSHIELD&fontSize=60&color=0:0f172a,100:000000&stroke=22c55e&fontColor=22c55e"/>
+</p>
+
+<p align="center">
+  <img src="https://img.icons8.com/ios-filled/500/000000/shield.png" width="110" style="opacity:0.85;"/>
+</p>
+
+<p align="center">
+<sub><span style="color:#22c55e">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
+</p>
+
 # blackshield
-
-<p align="center">
-  <img src="https://img.icons8.com/ios-filled/500/22c55e/shield.png" width="110"/>
-</p>
-
-<p align="center">
-<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
-</p>
 
 BlackShield is a **layered defensive toolkit** for high-sensitivity infrastructure.  
 It provides **connection tracking**, **authentication abuse detection**, **packet-rate anomaly monitoring**, and **kernel-level enforcement**.  
@@ -14,7 +18,7 @@ It provides **connection tracking**, **authentication abuse detection**, **packe
 No external dependencies. Deterministic, fail-closed, and bounded memory design.
 
 <p align="center">
-<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
+<sub><span style="color:#22c55e">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
 </p>
 
 ---
@@ -42,11 +46,10 @@ blackshield/
 ### 1. Ingress (Go)
 Tracks TCP connection attempts with **strike-based enforcement**.  
 
-**Core logic (abstracted):**
 ```go
 if limit exceeded:
-    increase strike level
-    enforce drop at threshold
+    escalate strike level
+    enforce drop on threshold
 ```
 
 Per-source accounting  
@@ -59,9 +62,8 @@ Time-decay cleanup
 
 Correlates authentication logs and detects brute-force attempts.
 
-**Pattern logic (abstracted):**
 ```python
-detect failed authentication events
+detect failed authentication patterns
 track failures per source
 ```
 
@@ -75,9 +77,8 @@ Deterministic fingerprinting
 
 Monitors packet flows and identifies anomalies.
 
-**Detection logic (abstracted):**
 ```rust
-if traffic rate abnormal:
+if abnormal rate detected:
     trigger anomaly event
 ```
 
@@ -91,10 +92,9 @@ Time-window pruning
 
 Kernel-level enforcement drops malicious packets before reaching userspace.
 
-**Kernel decision (abstracted):**
 ```c
-if threshold reached:
-    drop packet
+if threshold exceeded:
+    drop packet immediately
 ```
 
 XDP hook for zero-copy evaluation  
@@ -133,24 +133,17 @@ Simple and auditable
 
 ## Build & Deployment
 
-Userland:
 ```bash
 bash ops/init.sh
-```
-
-Kernel Layer:
-```bash
 cd kernel/fluxguard
 make
 sudo ./fluxguard eth0 fluxguard.o
 ```
 
-Detach:
 ```bash
 sudo ip link set dev eth0 xdp off
 ```
 
-Run:
 ```bash
 ./ingress/ingress
 python3 audit/core.py
@@ -162,8 +155,7 @@ python3 audit/core.py
 ## Execution Flow
 
 Packet → Kernel evaluation → Drop or pass  
-Ingress tracking → Audit correlation → Wire analysis  
-Enforcement + alerts  
+Ingress → Audit → Wire → Enforcement  
 
 ---
 
@@ -179,24 +171,17 @@ High-performance defense
 
 ## Operational Scope
 
-Intended for:
-
 Perimeter nodes  
 Authentication gateways  
 Segmented networks  
-Sensitive infrastructure  
-
-Not designed for:
-
-Forensics  
-Distributed intelligence  
+High-sensitivity infrastructure  
 
 ---
 
 ## Extension Points
 
 nftables / ipset  
-State propagation  
+Distributed state propagation  
 Protocol-aware parsing  
 Adaptive thresholds  
 
@@ -207,5 +192,5 @@ Adaptive thresholds
 BlackShield observes → classifies → enforces → discards.
 
 <p align="center">
-<sub><span style="color:#22c55e">────────────────────────────────────────────────────────────</span></sub>
+<sub><span style="color:#22c55e">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
 </p>
