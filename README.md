@@ -185,7 +185,11 @@ Adaptive thresholds
 
 ## Summary
 
-BlackShield observes → classifies → enforces → discards.
+Deterministic defensive surface tooling for ingress, authentication, and packet-level anomalies.
+
+Multi-domain signals consumed by kernel-level enforcement
+Immediate mitigation of abnormal network behavior
+Isolated and predictable operational response
 
 <p align="center">
 <sub><span style="color:#22c55e">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></sub>
